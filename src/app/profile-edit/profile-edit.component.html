@@ -7,7 +7,7 @@
       <mat-form-field>
         <input
           matInput
-          [(ngModel)]="userData.username"
+          [(ngModel)]="userData.Username"
           placeholder="Username"
           type="text"
           name="Username"
@@ -17,7 +17,7 @@
       <mat-form-field>
         <input
           matInput
-          [(ngModel)]="userData.password"
+          [(ngModel)]="userData.Password"
           placeholder="Password"
           type="password"
           name="Password"
@@ -27,7 +27,7 @@
       <mat-form-field>
         <input
           matInput
-          [(ngModel)]="userData.email"
+          [(ngModel)]="userData.Email"
           placeholder="Email"
           type="email"
           name="Email"
@@ -37,7 +37,7 @@
       <mat-form-field>
         <input
           matInput
-          [(ngModel)]="userData.birthday"
+          [(ngModel)]="userData.Birthday"
           placeholder="Birthday"
           type="date"
           name="Birthday"
@@ -46,7 +46,12 @@
     </form>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button (click)="editProfile()" color="primary">
+    <button
+      class="update-button"
+      mat-raised-button
+      (click)="updateUser()"
+      color="primary"
+    >
       Update
     </button>
   </mat-card-actions>

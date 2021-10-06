@@ -1,8 +1,8 @@
 <mat-toolbar>
-  <span>Welcome {{ userDetails }} </span>
+  <span>myFlix</span>
   <span class="top-nav"></span>
-  <button class="nav-btn" mat-button color="primary">Browse Movies</button>
-  <button class="nav-btn" mat-button color="primary">Favorites</button>
-  <button class="nav-btn" mat-button color="primary">Profile</button>
-  <button class="nav-btn" mat-button color="primary">Log out</button>
-</mat-toolbar>
+  <button mat-button (click)="openAllMovies()">Movies</button>
+  <button mat-button (click)="openFavorites()">Favorite Movies</button>
+  <button mat-button (click)="openUserProfile()">Profile</button>
+  <button mat-button (click)="logOut()">Logout</button></mat-toolbar
+>

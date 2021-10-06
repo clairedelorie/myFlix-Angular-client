@@ -12,7 +12,7 @@ import { SynopsisCardComponent } from '../synopsis-card/synopsis-card.component'
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
-const user = localStorage.getItem('user');
+const username = localStorage.getItem('user');
 
 @Component({
   selector: 'app-favorites',
@@ -46,14 +46,6 @@ export class FavoritesComponent implements OnInit {
     });
   }
 
-  getUsersFavs(): void {
-    this.fetchApiData.getUser(user).subscribe((resp: any) => {
-      this.favs = resp.favoritemovies;
-      console.log(this.favs, 'favs');
-      return this.favs;
-    });
-  }
-
   filterFavorites(): void {
     this.movies.forEach((movie: any) => {
       if (this.favs.includes(movie._id)) {
@@ -64,8 +56,17 @@ export class FavoritesComponent implements OnInit {
     return this.favorites;
   }
 
-  addToUserFavorites(id: string, title: string): void {
-    this.fetchApiData.addFavorite(id).subscribe((res: any) => {
+  getUsersFavs(): void {
+    this.fetchApiData.getUser().subscribe((resp: any) => {
+      this.favs = resp.FavoriteMovies;
+      console.log(this.favs, 'favs');
+      this.filterFavorites();
+      return this.favs;
+    });
+  }
+
+  addFavoriteMovie(id: string, title: string): void {
+    this.fetchApiData.addFavorite(id).subscribe((resp: any) => {
       this.snackBar.open(`${title} has been added to your favorites.`, 'OK', {
         duration: 3000,
       });
@@ -73,7 +74,7 @@ export class FavoritesComponent implements OnInit {
     });
   }
 
-  removeFromUserFavorites(id: string, title: string): void {
+  removeFavoriteMovie(id: string, title: string): void {
     this.fetchApiData.removeFavorite(id).subscribe((resp: any) => {
       this.snackBar.open(
         `${title} has been removed from your favorites.`,
@@ -96,12 +97,18 @@ export class FavoritesComponent implements OnInit {
     });
   }
 
-  openDirector(name: string, bio: string, birth: number, death: number): void {
+  openDirector(
+    name: string,
+    bio: string,
+    birthYear: number,
+    deathYear: number
+  ): void {
     this.dialog.open(DirectorCardComponent, {
-      data: { name, bio, birth, death },
+      data: { name, bio, birthYear, deathYear },
       width: '500px',
     });
   }
+
   openSynopsis(title: string, imageUrl: any, description: string): void {
     this.dialog.open(SynopsisCardComponent, {
       data: { title, imageUrl, description },

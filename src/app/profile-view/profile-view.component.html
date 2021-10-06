@@ -1,22 +1,19 @@
 <mat-card>
   <mat-card-header>
-    <mat-card-subtitle>
-      <button
-        class="float-right"
-        mat-stroked-button
-        color="basic"
-        (click)="openEditProfileDialog()"
-      >
-        Edit
-      </button>
-      User Profile
-    </mat-card-subtitle>
-    <mat-card-title> Welcome, {{ user.username }} ! </mat-card-title>
+    <mat-card-subtitle> Profile </mat-card-subtitle>
+    <mat-card-title> Hi, {{ user.Username }} ! </mat-card-title>
   </mat-card-header>
   <mat-card-content class="card-content">
-    <p>Email: {{ user.email }}</p>
-    <p>Birthday: {{ user.birthday }}</p>
-    <p>Username: {{ user.username }}</p>
+    <p>Email: {{ user.Email }}</p>
+    <p>Username: {{ user.Username }}</p>
+    <button
+      class="edit-button"
+      mat-raised-button
+      color="basic"
+      (click)="openUserUpdateDialog()"
+    >
+      Edit
+    </button>
   </mat-card-content>
   <mat-card-actions> </mat-card-actions>
 </mat-card>

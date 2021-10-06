@@ -1,49 +1,35 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
-// custom components
-import { ProfileViewComponent } from '../profile-view/profile-view.component';
-
-// material modules
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
+
+import { ProfileViewComponent } from '../profile-view/profile-view.component';
+const username = localStorage.getItem('user');
 
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.scss'],
 })
-export class NavBarComponent implements OnInit {
-  userDetails: any;
-
+export class NavBarComponent {
   constructor(
     public snackBar: MatSnackBar,
     public dialog: MatDialog,
     public router: Router
   ) {}
 
-  ngOnInit(): void {
-    this.getUserDetails();
-  }
-
-  /**
-   * opens modal with user details
-   */
   openUserProfile(): void {
     this.dialog.open(ProfileViewComponent, {
       width: '500px',
     });
   }
 
-  /**
-   * navigates to "all movies"
-   */
   openAllMovies(): void {
     this.router.navigate(['movies']);
   }
 
-  public getUserDetails(): void {
-    this.userDetails = localStorage.getItem('user');
+  openFavorites(): void {
+    this.router.navigate(['favorites']);
   }
 
   logOut(): void {

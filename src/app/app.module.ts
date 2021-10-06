@@ -13,9 +13,9 @@ import { DirectorCardComponent } from './director-card/director-card.component';
 import { GenreCardComponent } from './genre-card/genre-card.component';
 import { SynopsisCardComponent } from './synopsis-card/synopsis-card.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { FavoritesComponent } from './favorites/favorites.component';
 import { ProfileViewComponent } from './profile-view/profile-view.component';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
+import { FavoritesComponent } from './favorites/favorites.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -24,6 +24,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatDividerModule } from '@angular/material/divider';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
@@ -47,8 +48,9 @@ const appRoutes: Routes = [
     GenreCardComponent,
     SynopsisCardComponent,
     NavBarComponent,
-    ProfileEditComponent,
     ProfileViewComponent,
+    ProfileEditComponent,
+    FavoritesComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,6 +61,7 @@ const appRoutes: Routes = [
     MatButtonModule,
     MatCardModule,
     MatIconModule,
+    MatDividerModule,
     MatFormFieldModule,
     MatDialogModule,
     MatSnackBarModule,

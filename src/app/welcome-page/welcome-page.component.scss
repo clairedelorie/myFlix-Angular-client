@@ -1,0 +1,41 @@
+// #557571
+// #D49A89
+// #F7D1BA
+// #F4F4F4
+
+html,
+body {
+  background-color: #557571;
+}
+
+.main-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-page-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 350px;
+  background-color: #f4f4f4;
+  border: 1px solid black;
+  border-radius: 13px;
+  margin: 12% auto;
+  padding: 35px;
+}
+
+.login-button {
+  width: 80%;
+  margin: 10px;
+  background-color: #d49a89;
+}
+
+.register-button {
+  width: 80%;
+  margin: 10px;
+  background-color: #d49a89;
+}

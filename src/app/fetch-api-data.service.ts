@@ -17,20 +17,20 @@ const apiUrl = 'https://boiling-savannah-13307.herokuapp.com/';
 export class FetchApiDataService {
   // Inject the HttpClient module to the constructor params
   // This will provide HttpClient to the entire class, making it available via this.http
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
   // Making the api call for the user registration endpoint
-  public userRegistration(userDetails: any): Observable<any> {
-    console.log(userDetails);
+  public userRegistration(userData: any): Observable<any> {
+    console.log(userData);
     return this.http
-      .post(apiUrl + 'users', userDetails)
+      .post(apiUrl + 'users', userData)
       .pipe(catchError(this.handleError));
   }
 
   //User Login
-  public userLogin(userDetails: any): Observable<any> {
-    console.log(userDetails);
+  public userLogin(userData: any): Observable<any> {
+    console.log(userData);
     return this.http
-      .post(apiUrl + 'login', userDetails)
+      .post(apiUrl + 'login', userData)
       .pipe(catchError(this.handleError));
   }
 
@@ -83,15 +83,16 @@ export class FetchApiDataService {
   }
 
   //Get User
-  getUser(user: any): Observable<any> {
+  getUser(): Observable<any> {
     const token = localStorage.getItem('token');
+    const username = localStorage.getItem('user');
     return this.http
-      .get(apiUrl + `users/${user}`, {
+      .get(apiUrl + `users/${username}`, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
       })
-      .pipe(catchError(this.handleError));
+      .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
 
   //Get favorite movies
@@ -112,7 +113,7 @@ export class FetchApiDataService {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('user');
     return this.http
-      .post(apiUrl + `users/${username}/movies/${id}`, {
+      .post(apiUrl + `users/${username}/movies/` + id, null, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
@@ -121,11 +122,11 @@ export class FetchApiDataService {
   }
 
   // Edit user info
-  editUser(userDetails: any): Observable<any> {
+  editUser(userData: any): Observable<any> {
     const token = localStorage.getItem('token');
-    const user = localStorage.getItem('user');
+    const username = localStorage.getItem('user');
     return this.http
-      .put(apiUrl + `users/${user}`, userDetails, {
+      .put(apiUrl + `users/${username}`, userData, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),

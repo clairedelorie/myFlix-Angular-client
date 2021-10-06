@@ -1,0 +1,40 @@
+// #557571
+// #D49A89
+// #F7D1BA
+// #F4F4F4
+
+.mat-card {
+  min-width: 260px;
+  max-width: 275px;
+  margin: 10px;
+  background-color: #f4f4f4;
+}
+
+.favorite-container {
+  text-align: center;
+  margin: 25px 0;
+  color: black;
+}
+
+.movie-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.favorite-button-active {
+  float: right;
+  color: #d49a89;
+  cursor: pointer;
+}
+
+.favorite-button {
+  float: right;
+  cursor: pointer;
+}
+
+.button-link {
+  margin: 10px;
+  background-color: #557571;
+  color: white;
+}

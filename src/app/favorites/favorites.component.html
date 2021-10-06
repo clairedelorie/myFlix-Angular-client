@@ -1,17 +1,22 @@
-<app-navbar></app-navbar>
+<app-nav-bar></app-nav-bar>
+<div class="favorite-container">
+  <h1>Your Favorite Movies</h1>
+</div>
+<mat-divider></mat-divider>
+
 <div class="movie-container">
   <mat-card *ngFor="let movie of favorites" style="flex: 1 1 auto">
-    <mat-card-header>
+    <mat-card-header class="movie-header">
       <mat-card-title>{{ movie.Title }}</mat-card-title>
       <mat-icon
         *ngIf="!setFavStatus(movie._id)"
-        (click)="addToUserFavorites(movie._id, movie.Title)"
+        (click)="addFavoriteMovie(movie._id, movie.Title)"
         class="favorite-button"
         >favorite_border</mat-icon
       >
       <mat-icon
         *ngIf="setFavStatus(movie._id)"
-        (click)="addToUserFavorites(movie._id, movie.Title)"
+        (click)="removeFavoriteMovie(movie._id, movie.Title)"
         class="favorite-button-active"
         >favorite</mat-icon
       >
@@ -23,6 +28,8 @@
       <img
         class="movie-img"
         src="{{ movie.ImagePath }}"
+        width="260"
+        height="377"
         alt="{{ movie.Title }}"
       />
     </mat-card-content>
@@ -54,9 +61,7 @@
         class="button-link"
         mat-button
         color="primary"
-        (click)="
-          openSynopsis(movie.Title, movie.ImagePath, movie.Description,)
-        "
+        (click)="openSynopsis(movie.Title, movie.ImagePath, movie.Description)"
       >
         Synopsis
       </button>

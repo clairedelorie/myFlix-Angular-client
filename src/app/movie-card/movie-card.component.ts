@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
+
 import { GenreCardComponent } from '../genre-card/genre-card.component';
 import { DirectorCardComponent } from '../director-card/director-card.component';
 import { SynopsisCardComponent } from '../synopsis-card/synopsis-card.component';
+import { NavBarComponent } from '../nav-bar/nav-bar.component';
 
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -12,7 +14,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./movie-card.component.scss'],
 })
 export class MovieCardComponent {
+  user: any = {};
+  favorites: any = [];
   movies: any[] = [];
+  favs: any[] = [];
 
   constructor(
     public fetchApiData: FetchApiDataService,
@@ -22,6 +27,7 @@ export class MovieCardComponent {
 
   ngOnInit(): void {
     this.getMovies();
+    this.getUsersFavs();
   }
 
   getMovies(): void {
@@ -56,5 +62,46 @@ export class MovieCardComponent {
       data: { title, description },
       width: '500px',
     });
+  }
+
+  getUsersFavs(): void {
+    this.fetchApiData.getUser().subscribe((resp: any) => {
+      this.favs = resp.FavoriteMovies;
+      console.log(this.favs, 'favs');
+      return this.favs;
+    });
+  }
+
+  addFavoriteMovie(id: string, title: string): void {
+    this.fetchApiData.addFavorite(id).subscribe((resp: any) => {
+      this.snackBar.open(`${title} has been added to your favorites.`, 'OK', {
+        duration: 3000,
+      });
+      return this.getUsersFavs();
+    });
+  }
+
+  removeFavoriteMovie(id: string, title: string): void {
+    this.fetchApiData.removeFavorite(id).subscribe((resp: any) => {
+      this.snackBar.open(
+        `${title} has been removed from your favorites.`,
+        'OK',
+        {
+          duration: 3000,
+        }
+      );
+      setTimeout(function () {
+        window.location.reload();
+      }, 3000);
+    });
+    return this.getUsersFavs();
+  }
+
+  setFavStatus(id: any): any {
+    if (this.favs.includes(id)) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }

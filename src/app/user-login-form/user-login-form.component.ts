@@ -30,7 +30,8 @@ export class UserLoginFormComponent implements OnInit {
   loginUser(): void {
     this.fetchApiData.userLogin(this.userData).subscribe(
       (response) => {
-        localStorage.setItem('username', response.user.username);
+        console.log(response);
+        localStorage.setItem('user', response.user.Username);
         localStorage.setItem('token', response.token);
         this.dialogRef.close();
         this.snackBar.open('Login successful', 'OK', {

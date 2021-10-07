@@ -1,6 +1,6 @@
 # MyFlixAngularClient
 
-## ![imagename]("C:\Users\delor\OneDrive\Pictures\Screenshots\Screenshot (107).png")
+![imagename]("http://C:\Users\delor\OneDrive\Pictures\Screenshots\Screenshot (107).png")
 
 ## About
 

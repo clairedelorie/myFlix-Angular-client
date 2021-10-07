@@ -8,13 +8,14 @@ A movie database that allows registered users to browse movies and see movie det
 
 ## Tools Used
 
-|Property |Tool
-|Library |React
-|Route handling |axios
-|Styling Framework |Bootstrap
-|State management |Redux
-|API |REST
-|bundler |parcel
+| Property | Tool |
+| -------- | ----- |
+| Library           | React |
+| Route handling    |axios |
+| Styling Framework |Bootstrap |
+| State management  |Redux |
+| API               |REST |
+| bundler           |parcel |
 
 ## Dependencies
 

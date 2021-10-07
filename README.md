@@ -1,10 +1,20 @@
 # MyFlixAngularClient
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.8.
+## ![imagename]("C:\Users\delor\OneDrive\Pictures\Screenshots\Screenshot (107).png")
 
-## Development server
+## About
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+A movie database that allows registered users to browse movies and see movie details. Users can change information and add movies to a list of favorites.
+
+## Tools Used
+
+|Property |Tool
+|Library |React
+|Route handling |axios
+|Styling Framework |Bootstrap
+|State management |Redux
+|API |REST
+|bundler |parcel
 
 ## Dependencies
 
@@ -17,18 +27,23 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 - react-router-dom
 - babel
 
-## Build
+## Set up
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Install Angular CLI by typing
 
-## Running unit tests
+$ npm install --global @angular/cli@latest
+in your terminal
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+You can now download the repo to your computer, install the necessary modules by running:
 
-## Running end-to-end tests
+$ npm install
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Start the development server by typing
 
-## Further help
+$ ng serve
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+The console shows you the port on which the application is rendered. If your browser, doesn't open automatically, open it manually and navigate to the URL given in the terminal, in most cases: http://localhost:4200. The app will automatically reload if you change any of the source files.
+
+## Link to GitHib Pages
+
+[GitHub Pages](https://clairedelorie.github.io/myFlix-Angular-client)

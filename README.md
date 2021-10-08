@@ -1,6 +1,6 @@
 # MyFlixAngularClient
 
-![screenshot 107](src.myFlix-Angular.png)
+![screenshot 107](src/myFlix-Angular.png)
 
 ## About
 
